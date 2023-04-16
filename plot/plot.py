@@ -10,13 +10,13 @@ import matplotlib.ticker as ptick
 # python3 plot/plot.py csv/指定ディレクトリ
 
 """定数系"""
-n_steps = 8000
+n_steps = 2000
 # name = ['Regional LinRS', 'LinTS', 'LinUCB', 'Greedy']
 # 
 # name = ['LinUCB']
 # name = ['Regional LinRS w = 0.0', 'Regional LinRS w = 1.0', 'Regional LinRS w = 0.5', 'Regional LinRS']
-# name = ['Regional LinRS','LinUCB']
-name = ['LinTS']
+name = ['Regional LinRS']
+# name = ['LinTS']
 
 """引数確認"""
 args = sys.argv
@@ -53,7 +53,7 @@ results_dir = 'png/{0:%Y%m%d%H%M}/'.format(time_now)
 os.makedirs(results_dir, exist_ok=True)
 
 for i, data_name in enumerate(
-        ['rewards', 'regrets', 'accuracy', 'greedy_rate', 'errors', 'entropy_of_reliability','chosen_agent_rate']):
+        ['rewards', 'regrets', 'accuracy', 'greedy_rate', 'errors', 'entropy_of_reliability']):
     fig = plt.figure(figsize=(12, 8))
     #fig = plt.figure(figsize=(8, 8))
     ax = fig.add_subplot(111)
@@ -117,11 +117,14 @@ for i, data_name in enumerate(
                 result_list.at[j, data_name],
                 label=policy_name, linewidth=3, alpha=0.8)
                 ax.set_ylim([0,80000])
+        
         elif data_name == 'chosen_agent_rate':
-                ax.plot(np.linspace(1, n_steps, num=n_steps),
-                result_list.at[j, data_name],
-                label=policy_name, linewidth=3, alpha=0.8)
-                ax.set_ylim([0,1])
+            # pass
+            ax.plot(np.linspace(1, n_steps, num=n_steps),
+            result_list.at[j, data_name],
+            label=policy_name, linewidth=3, alpha=0.8)
+            ax.set_ylim([0,1])
+        
         else:
             ax.plot(np.linspace(1, n_steps, num=n_steps),
                     result_list.at[j, data_name],
@@ -145,6 +148,7 @@ for i, data_name in enumerate(
     elif data_name == 'entropy_of_reliability':
         ax.set_ylabel('entropy of reliability',fontsize=23)
     elif data_name == "chosen_agent_rate":
+        # pass
         ax.set_ylabel('chosen agent rate',fontsize=23)
     else:
         ax.set_ylabel(data_name,fontsize=23)

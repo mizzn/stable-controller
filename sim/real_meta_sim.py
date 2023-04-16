@@ -1,3 +1,4 @@
+# 未使用
 import datetime
 import os
 import time
@@ -7,7 +8,7 @@ import pandas as pd
 from typing import List
 
 from bandit.base_bandit import BaseBandit
-from policy.base_policy import BaseContextualPolicy
+# from policy.base_policy import BaseContextualPolicy
 from realworld.setup_context import ContextData
 from sim.meta_algorithm import MetaAlgorithm
 
@@ -23,7 +24,7 @@ class ContextualBanditSimulator(object):
         algos(list of str): 使用するアルゴリズムのリスト
     """
 
-    def __init__(self, policy_list:List[BaseContextualPolicy], meta_policy:str, bandit:BaseBandit, n_sims:int, n_steps:int, n_arms:int, n_features: int, data_type, stable_w_list:list) -> None:
+    def __init__(self, policy_list, meta_policy:str, bandit:BaseBandit, n_sims:int, n_steps:int, n_arms:int, n_features: int, data_type, stable_w_list:list) -> None:
         """クラスの初期化
         Args:
         policy_list(list of str) : 下位エージェントの方策リスト

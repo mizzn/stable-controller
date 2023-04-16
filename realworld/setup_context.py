@@ -45,7 +45,7 @@ class ContextData(object):
             num_actions(int):行動数
             context_dim(int):特徴量の次元
         """
-        print("realworld/setup_context.py/ContextData/get_data_info")
+        # print("realworld/setup_context.py/ContextData/get_data_info")
 
         if data_type == "mushroom":
             num_actions = 2 #行動数

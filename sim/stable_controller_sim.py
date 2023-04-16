@@ -6,7 +6,7 @@ from stable_controller.agent import Agent
 from stable_controller.higher_agent import HigherAgent
 
 class StableControllerSimulator(object):
-    """下位エージェントの重みをコントロールするアルゴリズムとなるクラス
+    """Stable Controllerを実行するクラス
 
     Attributes:
         p : 各腕の確率
@@ -19,7 +19,6 @@ class StableControllerSimulator(object):
         lmd : 閾値
     """
 
-    # 引数のpとか要る？？？？？？ 必要なさそうなので削除
     def __init__(self, n_arms, agent, higher_agent, n_features, L=30, delta=0, lmd=30): # 2つの方策が必要
         """ クラスの初期化 """
         self.n_arms = n_arms
@@ -34,11 +33,14 @@ class StableControllerSimulator(object):
         self.higher_agent_str = higher_agent
 
         # 文字列から上位エージェントをインスタンス化
+        # print("HIGHER_AGENT = ", HIGHER_AGENT)
         self.higher_agt_dic = HIGHER_AGENT[self.higher_agent_str]
+        # print("self.higher_agt_dic = ", self.higher_agt_dic)
         self.higher_agent = HigherAgent(self.higher_agt_dic)
+        #辞書を変更したのでインスタンス化がまだちゃんとできないはず
 
         # 文字列から下位エージェントをインスタンス化
-        self.agt_dic = AGENT[self.agent_str]
+        self.agt_dic = AGENT[self.agent_str] 
         self.agent = Agent(self.agt_dic) # ここだとパラメータはまだ初期値
 
         # new or old

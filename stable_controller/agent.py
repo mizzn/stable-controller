@@ -5,12 +5,12 @@ class Agent():
     """どんなポリシーでもこのエージェントとして機能するようにしたい"""
     def __init__(self, param_dic):
         self.param_dic = param_dic
-        self.n_arms = param_dic['n_arms'] #冗長？
+        # self.n_arms = param_dic['n_arms'] #冗長？
 
-        self.policy = Policy(param_dic, self.n_arms)
+        self.policy = Policy(param_dic)
 
     def initialize(self):
-        self.policy = Policy(self.param_dic, self.n_arms)
+        self.policy = Policy(self.param_dic)
 
     def choose_arm(self, x):
         # print("stable_controller/agent.py choose_arm")
