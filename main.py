@@ -28,7 +28,7 @@ def main():
     """
 
     # n_contexts = 100000
-    n_contexts = 100 #データの個数
+    n_contexts = 2000 #データの個数
     # n_contexts = 100
     data_type = 'mushroom'
     #data_type = 'financial'
@@ -41,7 +41,7 @@ def main():
     num_actions, context_dim = ContextData.get_data_info(data_type)
 
     # N_SIMS = 100 #シュミレーション数
-    N_SIMS = 1
+    N_SIMS = 50
     N_STEPS = n_contexts #step数 データの個数と同じにするのはどうして？
 
     N_ARMS = num_actions #行動の選択肢=腕の本数
@@ -58,7 +58,7 @@ def main():
     for i in policy_list:
         AGENT[i]['n_arms'] = N_ARMS
         AGENT[i]['n_features'] = N_FEATURES
-        print(AGENT[i])
+        # print(AGENT[i])
 
     # n_arms, n_featuresの更新確認　OK
     # for i in policy_list:
@@ -68,7 +68,7 @@ def main():
     bandit = ContextualBandit(n_arms=N_ARMS, n_features=N_FEATURES, n_contexts=N_STEPS, data_type=data_type)
 
     # exit()
-    # sim/real_sim_scのContextualBanditSimulator
+    # sim/sim_scのContextualBanditSimulator
     bs = ContextualBanditSimulator(policy_list=policy_list, bandit=bandit, n_sims=N_SIMS,
                          n_steps=N_STEPS, n_arms=N_ARMS, n_features=N_FEATURES, data_type=data_type)
     #シミュレーターを実行

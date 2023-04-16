@@ -486,6 +486,7 @@ class Policy():
         # print("self.name = ", self.name)
         if self.name == 'Regional LinRS':
             self.w = stable_param.STABLE_W_LIST[chosen_prm_idx]
+            # print("self.w = ", self.w)
         elif self.name == 'LinUCB':
             self.alpha = stable_param.ALPHA_LIST[chosen_prm_idx]
         elif self.name == 'LinTS':
