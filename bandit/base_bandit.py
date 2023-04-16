@@ -1,4 +1,4 @@
-
+# 使っていない
 
 class BaseBandit(object):
     """ベースとなるバンディットクラス

@@ -6,20 +6,20 @@ from scipy.stats import entropy
 from scipy.stats import invgamma
 
 class Policy():
-    def __init__(self, param_dic, n_arms):
+    def __init__(self, param_dic):
         """文字列からその方策のエージェントを作るためのクラス
 
         param_dic : 各方策に必要なパラメータを持った辞書
         n_arms : 腕の数（たぶん）
         """
-        # print(param_dic)
         self.param_dic = param_dic
-        self.set_policy(n_arms)
+        # print("self.param_dic = ", self.param_dic)
+        self.set_policy()
 
-    def set_policy(self, n_arms):
+    def set_policy(self):
         """方策ごとに初期値をセット"""
         # superの部分 共通ってこと
-        self.n_arms = n_arms
+        self.n_arms = self.param_dic['n_arms']
         self.n_features = self.param_dic['n_features']
         self.warmup = self.param_dic['warmup']
         self.batch_size = self.param_dic['batch_size']
@@ -38,28 +38,28 @@ class Policy():
         self.theta_hat = np.zeros((self.n_arms, self.n_features))
         self.theta_hat_x = np.zeros(self.n_arms)
 
-        print("下位エージェントの方策 = ", self.param_dic['policy_dic']['policy'])
-        if self.param_dic['policy_dic']['policy']=='Greedy':
+        print("下位エージェントの方策 = ", self.param_dic['policy_name'])
+        if self.param_dic['policy_name']=='Greedy':
             self.policy = self.greedy
             self.update = self.greedy_update
 
             self.name = 'Greedy'
 
             # greedy特有のパラメータ
-            self.n_steps = self.param_dic['policy_dic']['n_steps']
+            self.n_steps = self.param_dic['n_steps']
         
-        elif self.param_dic['policy_dic']['policy']=='Regional_LinRS':
+        elif self.param_dic['policy_name']=='Regional_LinRS':
             self.policy = self.regional_lin_rs
             self.update = self.regional_lin_rs_update
 
-            self.aleph = self.param_dic['policy_dic']['aleph']
-            self.k = self.param_dic['policy_dic']['k']
+            self.aleph = self.param_dic['aleph']
+            self.k = self.param_dic['k']
             self.episodic_memory = []
-            self.memory_capacity = self.param_dic['policy_dic']['memory_capacity']
-            self.zeta = self.param_dic['policy_dic']['zeta']
-            self.epsilon = self.param_dic['policy_dic']['epsilon']
-            self.stable_flag = self.param_dic['policy_dic']['stable_flag']
-            self.w = self.param_dic['policy_dic']['w']
+            self.memory_capacity = self.param_dic['memory_capacity']
+            self.zeta = self.param_dic['zeta']
+            self.epsilon = self.param_dic['epsilon']
+            self.stable_flag = self.param_dic['stable_flag']
+            self.w = self.param_dic['w']
             # print("インスタンス化時のself.w = ", self.w)
             
             #self.name = 'Regional LinRS(stable) ℵ={}'.format(self.aleph)
@@ -72,23 +72,23 @@ class Policy():
             self.print_prm()
 
 
-        elif self.param_dic['policy_dic']['policy']=='LinUCB':
+        elif self.param_dic['policy_name']=='LinUCB':
             self.policy = self.lin_ucb
             self.update = self.lin_ucb_update
 
-            self.alpha = self.param_dic['policy_dic']['alpha']
+            self.alpha = self.param_dic['alpha']
             self.name = 'LinUCB'
 
             print("print LinUCB prm")
             self.print_prm()
 
-        elif self.param_dic['policy_dic']['policy'] == 'LinTS':
+        elif self.param_dic['policy_name'] == 'LinTS':
             self.policy = self.lin_ts
             self.update = self.lin_ts_update
 
-            self._lambda_prior = self.param_dic['policy_dic']['lambda_prior']
-            self._a0 = self.param_dic['policy_dic']['alpha']
-            self._b0 = self.param_dic['policy_dic']['beta']
+            self._lambda_prior = self.param_dic['lambda_prior']
+            self._a0 = self.param_dic['alpha']
+            self._b0 = self.param_dic['beta']
             self.name = 'LinTS'
 
             self.mu = np.array([np.zeros(self.n_features + 1) for _ in range(self.n_arms)])
@@ -506,7 +506,7 @@ class Policy():
         print("arm_counts = ", self.arm_counts)
         print("arm_rewards = ", self.arm_rewards)
 
-        if self.param_dic['policy_dic']['policy']=='Regional_LinRS':
+        if self.param_dic['policy_name']=='Regional_LinRS':
             print("aleph = ", self.aleph)
             # print("k = ", self.k)
             # print("episodic memory = ", self.episodic_memory)
@@ -518,9 +518,9 @@ class Policy():
             print("theta hat x = ", self.theta_hat_x)
             print("rs = ", self.rs)
             print("n = ", self.n)
-        elif self.param_dic['policy_dic']['policy']=='LinUCB':
+        elif self.param_dic['policy_name']=='LinUCB':
             print("alpha = ", self.alpha)
-        elif self.param_dic['policy_dic']['policy']=='LinTS':
+        elif self.param_dic['policy_name']=='LinTS':
             print("_lambda_prior = ", self._lambda_prior)
             print("_a0 = ", self._a0)
             print("_b0 = ", self._b0)

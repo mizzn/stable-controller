@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """実行モジュール"""
 
-# from sim.real_sim_sc import ContextualBanditSimulator
-# from bandit.contextual_bandit import ContextualBandit
+from sim.sim_sc import ContextualBanditSimulator
+from bandit.contextual_bandit import ContextualBandit
 from realworld.setup_context import ContextData
 from policy_dic import AGENT
 # from policy_dic import HIGHER_AGENT
@@ -28,7 +28,7 @@ def main():
     """
 
     # n_contexts = 100000
-    n_contexts = 10 #データの個数
+    n_contexts = 100 #データの個数
     # n_contexts = 100
     data_type = 'mushroom'
     #data_type = 'financial'
@@ -41,7 +41,7 @@ def main():
     num_actions, context_dim = ContextData.get_data_info(data_type)
 
     # N_SIMS = 100 #シュミレーション数
-    N_SIMS = 2
+    N_SIMS = 1
     N_STEPS = n_contexts #step数 データの個数と同じにするのはどうして？
 
     N_ARMS = num_actions #行動の選択肢=腕の本数
@@ -52,19 +52,22 @@ def main():
 
     # print(AGENT)
 
-    policy_list = ['Regional_LinRS','LinUCB','LinTS']
+    # policy_list = ['Regional_LinRS','LinUCB','LinTS']
+    policy_list = ['Regional_LinRS']
 
     for i in policy_list:
         AGENT[i]['n_arms'] = N_ARMS
         AGENT[i]['n_features'] = N_FEATURES
+        print(AGENT[i])
 
-    # n_arms, n_featuresは更新できてる！
-    # print(AGENT)
-    exit()
+    # n_arms, n_featuresの更新確認　OK
+    # for i in policy_list:
+    #     print(AGENT[i])
   
     #bandit/contextual_bandit.pyより文脈付きバンディットをインスタンス化
     bandit = ContextualBandit(n_arms=N_ARMS, n_features=N_FEATURES, n_contexts=N_STEPS, data_type=data_type)
 
+    # exit()
     # sim/real_sim_scのContextualBanditSimulator
     bs = ContextualBanditSimulator(policy_list=policy_list, bandit=bandit, n_sims=N_SIMS,
                          n_steps=N_STEPS, n_arms=N_ARMS, n_features=N_FEATURES, data_type=data_type)

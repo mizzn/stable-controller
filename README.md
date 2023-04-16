@@ -10,3 +10,14 @@
 
 # stable controller
 stable controllerは上位エージェントと下位エージェントの組み合わせから構成されています．
+
+#　その他補足
+## bandit
+    base_bandit.py 未使用
+    contextual_bandit.py 文脈付きバンディットを実装
+
+## datasets
+    mushroom.csv https://archive.ics.uci.edu/ml/datasets/mushroom
+
+##　policy
+    これ使ってるっけ？
