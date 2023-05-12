@@ -32,6 +32,8 @@ class ContextData(object):
             context_dim = 128
             dataset, opt_artificial, exp_rewards = sample_mixed_artificial_data(data_type, num_contexts, context_dim)
             opt_rewards, opt_actions = opt_artificial
+        elif data_type=="mnist":
+            pass
         else:
             print("DATA NAME ERROR.")
 

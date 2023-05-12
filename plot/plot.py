@@ -10,7 +10,7 @@ import matplotlib.ticker as ptick
 # python3 plot/plot.py csv/指定ディレクトリ
 
 """定数系"""
-n_steps = 2000
+n_steps = 8000
 # name = ['Regional LinRS', 'LinTS', 'LinUCB', 'Greedy']
 # 
 # name = ['LinUCB']

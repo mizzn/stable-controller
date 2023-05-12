@@ -75,20 +75,20 @@ AGENT = {
 # }
 HIGHER_AGENT = {
     'RS' : {
-        'n_arms' : 2, 
+        'n_arms' : 11, 
         'policy_name' : 'RS', 
         'aleph':2.0, 
     },
-    'SRS_CH' : {
-        'n_arms':2,
-        'policy_name' : 'SRS_CH'
-    },
+    # 'SRS_CH' : {
+    #     'n_arms':11,
+    #     'policy_name' : 'SRS_CH'
+    # },
     'UCB' : {
-        'n_arms':2,
+        'n_arms':11,
         'policy_name' : 'UCB'
     },
     'TS' : {
-        'n_arms' : 2, 
+        'n_arms' : 11, 
         'policy_name' : 'TS', 
         'alpha':1, 
         'beta':10, 

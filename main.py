@@ -28,7 +28,7 @@ def main():
     """
 
     # n_contexts = 100000
-    n_contexts = 2000 #データの個数
+    n_contexts = 8000 #データの個数
     # n_contexts = 100
     data_type = 'mushroom'
     #data_type = 'financial'
@@ -41,7 +41,7 @@ def main():
     num_actions, context_dim = ContextData.get_data_info(data_type)
 
     # N_SIMS = 100 #シュミレーション数
-    N_SIMS = 50
+    N_SIMS = 100
     N_STEPS = n_contexts #step数 データの個数と同じにするのはどうして？
 
     N_ARMS = num_actions #行動の選択肢=腕の本数
