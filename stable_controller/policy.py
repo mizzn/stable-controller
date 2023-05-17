@@ -490,8 +490,8 @@ class Policy():
         elif self.name == 'LinUCB':
             self.alpha = stable_param.ALPHA_LIST[chosen_prm_idx]
         elif self.name == 'LinTS':
-            self._a0 = stable_param.AB_LIST[chosen_prm_idx]
-            self._b0 = stable_param.AB_LIST[chosen_prm_idx]
+            self._a0 = stable_param.SIGMA_LIST[chosen_prm_idx]
+            self._b0 = stable_param.SIGMA_LIST[chosen_prm_idx]
         else:
             print("stable_controller/policy.py change_prm name ERROR!")
             exit(0)

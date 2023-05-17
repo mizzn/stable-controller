@@ -11,11 +11,11 @@ import matplotlib.ticker as ptick
 
 """定数系"""
 n_steps = 8000
-# name = ['Regional LinRS', 'LinTS', 'LinUCB', 'Greedy']
-# 
+# name = ['Regional LinRS', 'LinTS', 'LinUCB']
+name = ['LinTS', 'LinUCB']
 # name = ['LinUCB']
 # name = ['Regional LinRS w = 0.0', 'Regional LinRS w = 1.0', 'Regional LinRS w = 0.5', 'Regional LinRS']
-name = ['Regional LinRS']
+# name = ['Regional LinRS']
 # name = ['LinTS']
 
 """引数確認"""

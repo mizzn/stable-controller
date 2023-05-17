@@ -53,7 +53,9 @@ def main():
     # print(AGENT)
 
     # policy_list = ['Regional_LinRS','LinUCB','LinTS']
-    policy_list = ['Regional_LinRS']
+    # policy_list = ['Regional_LinRS']
+    # policy_list = ['LinUCB','LinTS']
+    policy_list = ['LinTS']
 
     for i in policy_list:
         AGENT[i]['n_arms'] = N_ARMS

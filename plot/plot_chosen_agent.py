@@ -11,7 +11,8 @@ n_steps = 8000
 n_sims = 100
 n_arms = 11 # 上位エージェントの行動数
 # names = ['Regional_LinRS','LinUCB','LinTS']
-names = ['Regional_LinRS']
+names = ['LinUCB','LinTS']
+# names = ['Regional_LinRS']
 n_size = 100 # 棒グラフの幅
 #うまくimportできなかった！必ず変えること！
 # STABLE_W_LIST = [1.0, 0.5]
@@ -19,7 +20,7 @@ n_size = 100 # 棒グラフの幅
 # AB_LIST = [6.0, 6.0]
 STABLE_W_LIST = [i/10 for i in range(0, 11)]
 ALPHA_LIST = [i/10 for i in range(0, 11)]
-AB_LIST = [i/10 for i in range(0, 11)]
+AB_LIST = [i for i in range(0, 11)]
 
 """引数確認"""
 args = sys.argv

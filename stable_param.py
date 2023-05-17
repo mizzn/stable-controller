@@ -1,7 +1,7 @@
 
 STABLE_W_LIST = [i/10 for i in range(0, 11)]
 ALPHA_LIST = [i/10 for i in range(0, 11)]
-SIGMA_LIST = [i/10 for i in range(0, 11)]
+SIGMA_LIST = [i for i in range(0, 11)]
 
 # RegLinRS
 # STABLE_W_LIST = [0.5,1.0]
@@ -18,4 +18,4 @@ SIGMA_LIST = [i/10 for i in range(0, 11)]
 
 # print(STABLE_W_LIST)
 # print(ALPHA_LIST)
-# print(SIGMA_LIST)
+print(SIGMA_LIST)
