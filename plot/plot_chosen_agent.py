@@ -7,7 +7,7 @@ import matplotlib as mpl
 import datetime
 
 """定数系""" # ここを必ず変える
-n_steps = 10000
+n_steps = 8000
 n_sims = 100
 n_arms = 11 # 上位エージェントの行動数
 names = ['Regional_LinRS','LinUCB','LinTS']
@@ -75,6 +75,7 @@ for name in names:
     # cmap = plt.get_cmap("tab10")
     ax.set_ylim([0.0, 1.0])
     ax.set_xlabel('step', fontsize=23)
+    
     ax.xaxis.offsetText.set_fontsize(23)
     ax.set_ylabel('chosen parameter rate',fontsize=23)
     # ax.legend(loc='upper right', fontsize=23)
