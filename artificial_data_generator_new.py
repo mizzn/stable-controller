@@ -167,7 +167,7 @@ class Main():
 
 
 
-FLAG = True #one-hot特徴量の場合 False, 混合特徴量の場合 True
+FLAG = False #one-hot特徴量の場合 False, 混合特徴量の場合 True
 main = Main(FLAG)
 if FLAG == True:
     feature_data, param_data = main.mixed_data_sampling()

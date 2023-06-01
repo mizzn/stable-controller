@@ -28,13 +28,13 @@ def main():
     """
 
     # n_contexts = 100000
-    n_contexts = 8000 #データの個数
-    # n_contexts = 100
-    data_type = 'mushroom'
+    # n_contexts = 10000 #データの個数
+    n_contexts = 10000
+    # data_type = 'mushroom'
     #data_type = 'financial'
     #data_type = 'jester'
     # data_type = 'artificial_0.7'
-    # data_type = 'mixed_artificial_0.7'
+    data_type = 'mixed_artificial_0.7'
     # artificialは重すぎてgitあがらなかった
     
     #setup_context.pyより
@@ -52,10 +52,10 @@ def main():
 
     # print(AGENT)
 
-    # policy_list = ['Regional_LinRS','LinUCB','LinTS']
+    policy_list = ['Regional_LinRS','LinUCB','LinTS']
     # policy_list = ['Regional_LinRS']
     # policy_list = ['LinUCB','LinTS']
-    policy_list = ['LinTS']
+    # policy_list = ['LinTS']
 
     for i in policy_list:
         AGENT[i]['n_arms'] = N_ARMS

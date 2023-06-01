@@ -10,9 +10,10 @@ import matplotlib.ticker as ptick
 # python3 plot/plot.py csv/指定ディレクトリ
 
 """定数系"""
-n_steps = 8000
-# name = ['Regional LinRS', 'LinTS', 'LinUCB']
-name = ['LinTS', 'LinUCB']
+n_steps = 10000
+name = ['Regional LinRS', 'LinTS', 'LinUCB']
+# name = ['Regional LinRS', 'LinUCB']
+# name = ['LinTS', 'LinUCB']
 # name = ['LinUCB']
 # name = ['Regional LinRS w = 0.0', 'Regional LinRS w = 1.0', 'Regional LinRS w = 0.5', 'Regional LinRS']
 # name = ['Regional LinRS']

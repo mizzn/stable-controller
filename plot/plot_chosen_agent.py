@@ -7,11 +7,12 @@ import matplotlib as mpl
 import datetime
 
 """定数系""" # ここを必ず変える
-n_steps = 8000
+n_steps = 10000
 n_sims = 100
 n_arms = 11 # 上位エージェントの行動数
-# names = ['Regional_LinRS','LinUCB','LinTS']
-names = ['LinUCB','LinTS']
+names = ['Regional_LinRS','LinUCB','LinTS']
+# names = ['Regional_LinRS','LinUCB']
+# names = ['LinUCB','LinTS']
 # names = ['Regional_LinRS']
 n_size = 100 # 棒グラフの幅
 #うまくimportできなかった！必ず変えること！
@@ -56,13 +57,13 @@ for name in names:
     for i in range(len(w_list)):
         # print("i = ", i)
         count_nonzero_array[i] = np.count_nonzero(file == i, axis=0)
-    print("count_nonzero_array = ")
+    # print("count_nonzero_array = ")
     print(count_nonzero_array)
     for row_i in range(n_arms):
         for column_i in range(int(n_steps/n_size)):
             result_array[row_i][column_i] = sum(count_nonzero_array[row_i][column_i*n_size:(column_i+1)*n_size])/(n_sims*n_size)
-    print("result array = ")
-    print(result_array)
+    # print("result array = ")
+    # print(result_array)
     # exit(0)
     print(np.sum(result_array, axis=0))
 

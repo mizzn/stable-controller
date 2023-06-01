@@ -1,4 +1,5 @@
 #下位エージェントのパラメータの辞書
+# 
 AGENT = {
     # n_arms: int, n_features: int, warmup: int=1, batch_size: int=1,n_steps:int=1
     'Greedy': {
@@ -16,7 +17,7 @@ AGENT = {
         'warmup': 10,
         'batch_size': 20,
         'policy_name': 'Regional_LinRS', 
-        'aleph': 2.0, 
+        'aleph': 0.6, 
         'k': 50, 
         'memory_capacity': 10000, 
         'zeta': 0.008, 
@@ -45,8 +46,8 @@ AGENT = {
         'warmup': 10,
         'batch_size': 20,
         'policy_name': 'LinTS', 
-        'alpha':6, 
-        'beta':6, 
+        'alpha':1, 
+        'beta':1, 
         'lambda_prior':0.25,
     }
 }
@@ -77,7 +78,7 @@ HIGHER_AGENT = {
     'RS' : {
         'n_arms' : 11, 
         'policy_name' : 'RS', 
-        'aleph':2.0, 
+        'aleph':0.6, 
     },
     # 'SRS_CH' : {
     #     'n_arms':11,

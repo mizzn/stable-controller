@@ -18,4 +18,4 @@ SIGMA_LIST = [i for i in range(0, 11)]
 
 # print(STABLE_W_LIST)
 # print(ALPHA_LIST)
-print(SIGMA_LIST)
+# print(SIGMA_LIST)
