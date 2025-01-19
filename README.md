@@ -1,3 +1,6 @@
+[広範なデータへ動的に対応する目的志向探索](https://www.jstage.jst.go.jp/article/pjsai/JSAI2023/0/JSAI2023_3R5GS204/_article/-char/ja/)のシミュレーションに使用したコードです．
+詳しくは論文を参照してください．
+
 # 実行方法
 
 `python main.py`で実行できます．
@@ -8,16 +11,6 @@
 コード上は3つ以上の選択肢を持てるようにしてありますが，未検証です．
 エージェントのパラメータはpolicy_dic.pyで変更してください．
 
-# stable controller
-stable controllerは上位エージェントと下位エージェントの組み合わせから構成されています．
 
-#　その他補足
-## bandit
-    base_bandit.py 未使用
-    contextual_bandit.py 文脈付きバンディットを実装
-
-## datasets
+# datasets
     mushroom.csv https://archive.ics.uci.edu/ml/datasets/mushroom
-
-##　policy
-    これ使ってるっけ？
